@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       gridTemplateColumns: {
-        navbar: "1fr 4fr .6fr",
+        navbar: "1fr 6fr 1.5fr",
       },
       letterSpacing: {
         normal: "2px",
