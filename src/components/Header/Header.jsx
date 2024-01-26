@@ -9,7 +9,7 @@ export default function Header() {
 
   useEffect(() => {
     function handleScroll() {
-      const isScrolled = window.scrollY > 10;
+      const isScrolled = window.scrollY > 30;
       setScrolled(isScrolled);
     }
 
@@ -20,16 +20,17 @@ export default function Header() {
     };
   }, []);
 
+
   useEffect(() => {
     gsap.to(".header", {
-      height: scrolled ? 60 : 100,
-      duration: 0.3,
-      delay: 0.1,
+      height: scrolled ? 60 : 150,
+      duration: .3,
+      backgroundColor: scrolled ? "#000000" : "#0000001a",
     });
   }, [scrolled]);
 
   return (
-    <header className="w-full flex justify-center fixed top-0 header h-36">
+    <header className="w-full flex justify-center fixed top-0 header h-48">
       <nav className="w-11/12 grid grid-cols-navbar justify-around items-center">
         <div className=" h-8 flex items-center">
           <img src={logo} alt="Link to home and logo of Avicii.com" />

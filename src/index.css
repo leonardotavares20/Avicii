@@ -18,6 +18,11 @@ h1,
 h2,
 h3,
 h4,
-li {
+li,
+button {
   text-transform: uppercase;
+}
+
+.inLoving, .dataMemory {
+  letter-spacing: 5px;
 }
