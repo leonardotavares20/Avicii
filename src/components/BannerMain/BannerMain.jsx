@@ -6,7 +6,7 @@ export default function BannerMain() {
   return (
     <>
       <section className="w-full h-bannerContainer">
-        <img className="h-full object-cover" src={ImageBanner} alt="" />
+        <img className="h-full w-banner object-cover" src={ImageBanner} alt="" />
         <div className="flex justify-center top-60 absolute w-full">
           <div className="flex flex-col items-center w-1/2">
             <img src={TitleMemoryBoard} alt="" />
