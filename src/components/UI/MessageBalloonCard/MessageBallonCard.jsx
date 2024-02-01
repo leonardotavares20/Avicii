@@ -41,6 +41,7 @@ export default function MessageBallonCard() {
           </svg>
           <form>
             <Select
+            className="z-30"
               styles={{
                 control: (baseStyles, state) => ({
                   ...baseStyles,
@@ -94,16 +95,27 @@ export default function MessageBallonCard() {
             />
             <div className="grid mt-2 h-12 grid-cols-ballonCard bg-black">
               <input
-                className="border-input border border- bg-input placeholder-white placeholder: px-4 placeholder: tracking-normal placeholder:uppercase"
+                className="border-input border border- bg-input placeholder-white z-20 placeholder: px-4 placeholder: tracking-normal placeholder:uppercase"
                 type="email"
                 placeholder="E-mail"
               />
               <button
-                className="w-full tracking-normal font-bold border-2 border-input"
+                className="w-full tracking-normal z-10 font-bold border-2 border-input"
                 type="submit"
               >
                 Send
               </button>
+            </div>
+            <div className="w-full bg-red-300 flex items-center gap-1 relative">
+              <input
+                className="w-4 h-4"
+                type="checkbox"
+                name="Terms"
+                id="Terms"
+              />
+              <label htmlFor="Terms">
+                I accept the <a href="">privacy policy</a>.
+              </label>
             </div>
           </form>
         </HoverCard.Content>

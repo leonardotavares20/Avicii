@@ -24,6 +24,22 @@ button {
   text-transform: uppercase;
 }
 
-.inLoving, .dataMemory {
+.inLoving,
+.dataMemory {
   letter-spacing: 5px;
+}
+input[type="checkbox"] {
+  accent-color: rgb(0, 0, 0);
+  border-color: white;
+  padding: 10px;
+  border-radius: 0px;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+input[type="checkbox"]:checked {
+  border-color: white;
+  background-color: rgb(255, 255, 255);
 }
