@@ -41,7 +41,7 @@ export default function MessageBallonCard() {
           </svg>
           <form>
             <Select
-            className="z-30"
+              className="z-30"
               styles={{
                 control: (baseStyles, state) => ({
                   ...baseStyles,
@@ -106,15 +106,11 @@ export default function MessageBallonCard() {
                 Send
               </button>
             </div>
-            <div className="w-full bg-red-300 flex items-center gap-1 relative">
-              <input
-                className="w-4 h-4"
-                type="checkbox"
-                name="Terms"
-                id="Terms"
-              />
-              <label htmlFor="Terms">
-                I accept the <a href="">privacy policy</a>.
+            <div className="w-full grid items-center pt-2 gap-1 relative container">
+              <label class="container">
+                I accept the <a className="underline" href="">privacy policy.</a>
+                <input type="checkbox" name="" id="" />
+                <span class="checkmark"></span>
               </label>
             </div>
           </form>
