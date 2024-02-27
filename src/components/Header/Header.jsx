@@ -3,6 +3,7 @@ import MenuSocials from "./MenuSocials/MenuSocials";
 import MenuLinks from "./MenuLinks/MenuLinks";
 import { useState, useEffect } from "react";
 import gsap from "gsap";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -20,17 +21,15 @@ export default function Header() {
     };
   }, []);
 
-  useEffect(() => {
-    gsap.to(".header", {
-      height: scrolled ? 60 : 150,
-      duration: 0.3,
-      backgroundColor: scrolled ? "#000000" : "#0000001a",
-    });
-  }, [scrolled]);
-
   return (
     <>
-      <header className="w-full text-center flex justify-center fixed top-0 header h-48">
+      <motion.header
+        animate={{
+          height: scrolled ? 60 : 150,
+          backgroundColor: scrolled ? "#000000" : "#0000001a",
+        }}
+        className="w-full text-center z-10 flex justify-center fixed top-0 h-48"
+      >
         <nav className="w-11/12 grid grid-cols-navbar justify-around items-center">
           <div className=" h-8 flex items-center">
             <img src={logo} alt="Link to home and logo of Avicii.com" />
@@ -38,7 +37,7 @@ export default function Header() {
           <MenuLinks />
           <MenuSocials />
         </nav>
-      </header>
+      </motion.header>
       <div className="h-header"></div>
     </>
   );

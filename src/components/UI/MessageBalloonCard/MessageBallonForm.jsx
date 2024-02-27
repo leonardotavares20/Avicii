@@ -1,14 +1,13 @@
 import * as HoverCard from "@radix-ui/react-hover-card";
-import "./animation.css";
 import Select from "react-select";
 
 const options = [
   { value: "brasil", label: "Brazil" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
+  { value: "strawberry", label: "EUA" },
+  { value: "vanilla", label: "Spain" },
 ];
 
-export default function MessageBallonCard() {
+export default function MessageBallonForm() {
   return (
     <HoverCard.Root openDelay={100} closeDelay={1000}>
       <HoverCard.Trigger asChild={true}>
@@ -108,7 +107,10 @@ export default function MessageBallonCard() {
             </div>
             <div className="w-full grid items-center pt-2 gap-1 relative container">
               <label class="container">
-                I accept the <a className="underline" href="">privacy policy.</a>
+                I accept the{" "}
+                <a className="underline" href="">
+                  privacy policy.
+                </a>
                 <input type="checkbox" name="" id="" />
                 <span class="checkmark"></span>
               </label>

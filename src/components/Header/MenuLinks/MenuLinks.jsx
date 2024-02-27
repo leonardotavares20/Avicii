@@ -1,9 +1,9 @@
-import MessageBallonCard from "../../UI/MessageBalloonCard/MessageBallonCard";
+import MessageBallonForm from "../../UI/MessageBalloonCard/MessageBallonForm";
 
 export default function MenuLinks() {
   return (
     <>
-      <menu className="flex text-menu justify-center font-bold h-8 tracking-normal gap-x-14 items-center">
+      <menu className="flex justify-center font-bold h-8 tracking-normal gap-x-10 items-center">
         <li>
           <a
             className="text-white transition duration-400 ease-in-out hover:text-gray-400"
@@ -26,7 +26,7 @@ export default function MenuLinks() {
         </li>
         <li>
           <div className="text-white transition duration-400 ease-in-out hover:text-gray-400">
-            <MessageBallonCard />
+            <MessageBallonForm />
           </div>
         </li>
         <li>

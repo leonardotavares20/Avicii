@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       width: {
-        banner: "160%",
+        banner: "220%",
       },
       height: {
-        bannerContainer: "855px",
-        header: '100px',
+        bannerContainer: "1050px",
+        header: "12rem",
       },
       fontSize: {
         menu: "17px",
