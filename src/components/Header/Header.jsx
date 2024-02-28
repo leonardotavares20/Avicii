@@ -2,7 +2,6 @@ import logo from "../../../public/logo.svg";
 import MenuSocials from "./MenuSocials/MenuSocials";
 import MenuLinks from "./MenuLinks/MenuLinks";
 import { useState, useEffect } from "react";
-import gsap from "gsap";
 import { motion } from "framer-motion";
 
 export default function Header() {
