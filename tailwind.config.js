@@ -6,6 +6,9 @@ export default {
       width: {
         banner: "220%",
       },
+      maxWidth: {
+        remembering: "750px",
+      },
       height: {
         bannerContainer: "1050px",
         header: "12rem",
@@ -30,6 +33,10 @@ export default {
       },
       backgroundColor: {
         input: "#181818",
+      },
+      letterSpacing: {
+        remembering: "2px",
+        menu: "2px",
       },
       keyframes: {
         fadeIn: {

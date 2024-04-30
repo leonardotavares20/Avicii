@@ -1,25 +1,19 @@
 import ImageBanner from "/public/banner-tim2.jpg";
 import TitleMemoryBoard from "/public/title-memory-board.svg";
 import NameAvici from "/public/avicii.svg";
-import { motion, animate } from "framer-motion";
+import { motion, animate, delay } from "framer-motion";
 import { useEffect } from "react";
 
 export default function BannerMain() {
   useEffect(() => {
     const sequenceImageOne = [
-      ["img#banner", { opacity: 1 }, { duration: 1.5 }],
+      // ["img#banner", { opacity: 1 }, { duration: 2.3 }],
+      // ["img#title", { opacity: 1 }, { duration: 0.5 }],
+      // ["div#dataMemory", { opacity: 1 }, { duration: 0.5 }],
+      // ["img#nameAvicii", { opacity: 1 }, { duration: 0.5 }],
     ];
 
-    const sequenceImageTwo = [
-      ["img#title", { opacity: 1 }, { duration: 1 }],
-      ["div#dataMemory", { opacity: 1 }, { duration: 1 }],
-      ["img#nameAvicii", { opacity: 1 }, { duration: 1 }],
-      [],
-    ];
-
-    animate(sequenceImageOne).then(() => {
-      animate(sequenceImageTwo);
-    });
+    animate(sequenceImageOne);
   }, []);
 
   return (
@@ -29,6 +23,8 @@ export default function BannerMain() {
           <motion.img
             initial={{ opacity: 0 }}
             id="banner"
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 2.3 }}
             className="h-full w-banner object-cover relative bottom-48"
             src={ImageBanner}
             alt="Avicii"
@@ -39,11 +35,15 @@ export default function BannerMain() {
               initial={{ opacity: 0 }}
               className="w-5/6"
               src={TitleMemoryBoard}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.9, duration: 2.3 }}
               alt="The Avicii memory board"
             />
             <motion.div
               initial={{ opacity: 0 }}
               className="flex flex-col items-center"
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.4, duration: 2.3 }}
               id="dataMemory"
             >
               <p className="uppercase text-xl inLoving">In Loving Memory</p>
@@ -54,6 +54,8 @@ export default function BannerMain() {
             <motion.img
               id="nameAvicii"
               initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.9, duration: 2.3 }}
               className="mt-10"
               src={NameAvici}
               alt="Avicii"
