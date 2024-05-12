@@ -1,35 +1,60 @@
-import ImageBanner from "/public/banner-tim2.jpg";
+import BannerImage from "/public/banner-tim2.jpg";
 import TitleMemoryBoard from "/public/title-memory-board.svg";
 import NameAvici from "/public/avicii.svg";
 import { motion, animate, delay } from "framer-motion";
 import { useEffect } from "react";
+import * as stylex from "@stylexjs/stylex";
+import { useGSAP } from "@gsap/react";
+
+const styles = stylex.create({
+  section: {
+    width: "100%",
+    position: "relative",
+    bottom: "2rem",
+    height: "1050px",
+  },
+  containerImages: {
+    display: "grid",
+    height: "100%",
+    width: "100%",
+    justifyItems: "center",
+  },
+  containerTexts: {
+    display: "flex",
+    flexDirection: "column",
+    position: "absolute",
+    top: "50%",
+    alignItems: "center",
+    width: "50%",
+  },
+});
+
+const images = stylex.create({
+  bannerImage: {
+    height: "100%",
+    width: "100%",
+    objectFit: "cover",
+    position: "relative",
+    bottom: "12rem",
+  },
+});
 
 export default function BannerMain() {
-  useEffect(() => {
-    const sequenceImageOne = [
-      // ["img#banner", { opacity: 1 }, { duration: 2.3 }],
-      // ["img#title", { opacity: 1 }, { duration: 0.5 }],
-      // ["div#dataMemory", { opacity: 1 }, { duration: 0.5 }],
-      // ["img#nameAvicii", { opacity: 1 }, { duration: 0.5 }],
-    ];
-
-    animate(sequenceImageOne);
-  }, []);
-
+  useGSAP(() => {}, {});
   return (
     <>
-      <section className="w-full relative bottom-8 h-bannerContainer">
-        <div className="grid h-full justify-items-center w-full">
+      <section {...stylex.props(styles.section)}>
+        <div {...stylex.props(styles.containerImages)}>
           <motion.img
+            {...stylex.props(images.bannerImage)}
             initial={{ opacity: 0 }}
             id="banner"
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 2.3 }}
-            className="h-full w-banner object-cover relative bottom-48"
-            src={ImageBanner}
+            src={BannerImage}
             alt="Avicii"
           />
-          <div className="flex flex-col absolute top-2/4 items-center w-1/2">
+          <div {...stylex.props(styles.containerTexts)}>
             <motion.img
               id="title"
               initial={{ opacity: 0 }}
