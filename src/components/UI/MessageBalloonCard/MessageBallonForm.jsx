@@ -9,7 +9,7 @@ const options = [
 
 export default function MessageBallonForm() {
   return (
-    <HoverCard.Root openDelay={100} closeDelay={1000}>
+    <HoverCard.Root openDelay={100} closeDelay={200}>
       <HoverCard.Trigger asChild={true}>
         <a href="#">Join The Community</a>
       </HoverCard.Trigger>
@@ -58,7 +58,7 @@ export default function MessageBallonForm() {
                   borderRadius: "2px",
                   padding: "0px",
                 }),
-                option: (baseStyles) => ({
+                option: () => ({
                   padding: "0px 10px",
                   backgroundColor: "#181818",
                   ":hover": {

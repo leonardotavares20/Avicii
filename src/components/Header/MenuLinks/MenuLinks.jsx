@@ -1,12 +1,25 @@
 import MessageBallonForm from "../../UI/MessageBalloonCard/MessageBallonForm";
+import stylex from "@stylexjs/stylex";
+
+const styles = stylex.create({
+  menu: {
+    display: "flex",
+    justifyContent: "center",
+    height: "100%",
+    letterSpacing: "2.5px",
+    alignItems: "center",
+    gap: "3rem",
+    fontSize: "14.2px",
+  },
+});
 
 export default function MenuLinks() {
   return (
     <>
-      <menu className="flex justify-center font-bold h-8 tracking-menu gap-x-10 items-center">
+      <menu {...stylex.props(styles.menu)}>
         <li>
           <a
-            className="text-white transition duration-400 ease-in-out hover:text-gray-400"
+            className="text-white  transition duration-400 ease-in-out hover:text-gray-400"
             href="http://"
             target="_blank"
             rel="noopener noreferrer"

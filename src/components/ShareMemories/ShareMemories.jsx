@@ -1,28 +1,39 @@
 import WorldMap from "/public/worldmap.jpeg";
-import { motion } from "framer-motion";
 import * as stylex from "@stylexjs/stylex";
 import { ScrollTrigger } from "gsap/src/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useRef } from "react";
 
-const ShareMemoriesStyles = stylex.create({
-  text: {
-    color: "#ffc875",
-    fontSize: "20px",
-  },
+const styles = stylex.create({
+  container: {},
 });
 
 export default function ShareMemories() {
+  const container = useRef();
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(
+    () => {
+      ScrollTrigger.create({
+        trigger: ".image",
+        once: true,
+        onEnter: ({ progress, direction, isActive }) => {
+          gsap.fromTo(
+            ".image",
+            { y: 50, opacity: 0 },
+            { y: 0, duration: 2, opacity: 1 }
+          );
+        },
+      });
+    },
+    { scope: container }
+  );
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      viewport={{ once: true }}
-      whileInView={{ opacity: 1 }}
-      transition={{ delay: 0, duration: 2.3 }}
-      className="w-full h-full"
-    >
-      <img src={WorldMap} alt="" />
-      <p {...stylex.props(ShareMemoriesStyles.text)}>
-        Hello, Stylex with Vite!
-      </p>
-    </motion.div>
+    <div ref={container} {...stylex.props(styles.container)}>
+      <div {...stylex.props(styles.container)}>
+        <img className="image" src={WorldMap} alt="" />
+      </div>
+    </div>
   );
 }
