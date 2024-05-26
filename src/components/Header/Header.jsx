@@ -1,9 +1,10 @@
 import logo from "../../../public/logo.svg";
 import MenuSocials from "./MenuSocials/MenuSocials";
 import MenuLinks from "./MenuLinks/MenuLinks";
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useRef } from "react";
 import stylex from "@stylexjs/stylex";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const styles = stylex.create({
   header: {
@@ -12,9 +13,9 @@ const styles = stylex.create({
     zIndex: "10",
     display: "flex",
     justifyContent: "center",
-    position: "sticky",
+    position: "fixed",
     top: "0",
-    height: "12rem",
+    height: "150px",
     marginBottom: "2.5rem",
   },
   nav: {
@@ -28,41 +29,50 @@ const styles = stylex.create({
     WebkitFontSmoothing: "antialiased",
     textRendering: "optimizeSpeed",
   },
+  logoContainer: {
+    display: "flex",
+    alignItems: "center",
+  },
+  gapHeader: {
+    height: "190px",
+    width: "100%",
+  },
 });
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
+  const container = useRef();
 
-  useEffect(() => {
-    function handleScroll() {
-      const isScrolled = window.scrollY > 30;
-      setScrolled(isScrolled);
-    }
+  useGSAP(
+    () => {
+      function handleScroll() {
+        const isScrolled = window.scrollY > 30;
+        gsap.to(container.current, {
+          height: isScrolled ? 60 : 150,
+          background: isScrolled ? "black" : "#00000011",
+        });
+      }
 
-    window.addEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    },
+    { scope: container }
+  );
 
   return (
     <>
-      <motion.header
-        {...stylex.props(styles.header)}
-        animate={{
-          height: scrolled ? 60 : 150,
-          backgroundColor: scrolled ? "#000000" : "#0000000",
-        }}
-      >
+      <header {...stylex.props(styles.header)} ref={container}>
         <nav {...stylex.props(styles.nav)}>
-          <div className="flex items-center">
+          <div {...stylex.props(styles.logoContainer)}>
             <img src={logo} alt="Link to home and logo of Avicii.com" />
           </div>
           <MenuLinks />
           <MenuSocials />
         </nav>
-      </motion.header>
+      </header>
+      <div {...stylex.props(styles.gapHeader)}></div>
     </>
   );
 }

@@ -11,6 +11,13 @@ const styles = stylex.create({
     gap: "3rem",
     fontSize: "14.2px",
   },
+  link: {
+    color: {
+      default: "white",
+      ":hover": "#929292",
+    },
+    transition: "0.2s ease-in-out",
+  },
 });
 
 export default function MenuLinks() {
@@ -19,7 +26,7 @@ export default function MenuLinks() {
       <menu {...stylex.props(styles.menu)}>
         <li>
           <a
-            className="text-white  transition duration-400 ease-in-out hover:text-gray-400"
+            {...stylex.props(styles.link)}
             href="http://"
             target="_blank"
             rel="noopener noreferrer"
@@ -29,7 +36,7 @@ export default function MenuLinks() {
         </li>
         <li>
           <a
-            className="text-white transition duration-400 ease-in-out hover:text-gray-400"
+            {...stylex.props(styles.link)}
             href="http://"
             target="_blank"
             rel="noopener noreferrer"
@@ -38,13 +45,13 @@ export default function MenuLinks() {
           </a>
         </li>
         <li>
-          <div className="text-white transition duration-400 ease-in-out hover:text-gray-400">
+          <div {...stylex.props(styles.link)}>
             <MessageBallonForm />
           </div>
         </li>
         <li>
           <a
-            className="text-white transition duration-400 ease-in-out hover:text-gray-400"
+            {...stylex.props(styles.link)}
             href="http://"
             target="_blank"
             rel="noopener noreferrer"
