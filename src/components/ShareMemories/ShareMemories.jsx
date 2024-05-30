@@ -18,11 +18,11 @@ export default function ShareMemories() {
       ScrollTrigger.create({
         trigger: ".image",
         once: true,
-        onEnter: ({ progress, direction, isActive }) => {
+        onEnter: () => {
           gsap.fromTo(
             ".image",
             { y: 50, opacity: 0 },
-            { y: 0, duration: 2, opacity: 1 }
+            { y: 0, duration: 3, opacity: 1 }
           );
         },
       });
