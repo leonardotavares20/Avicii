@@ -1,9 +1,9 @@
 import BannerImage from "/public/banner-tim2.jpg";
 import TitleMemoryBoard from "/public/title-memory-board.svg";
 import NameAvici from "/public/avicii.svg";
-import { motion } from "framer-motion";
 import * as stylex from "@stylexjs/stylex";
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const styles = stylex.create({
   section: {
@@ -39,31 +39,53 @@ const images = stylex.create({
 });
 
 export default function BannerMain() {
-  useGSAP(() => {}, {});
+  useGSAP(() => {
+    const timeline = gsap.timeline();
+
+    timeline.fromTo(
+      "#banner",
+      { opacity: 0 },
+      { opacity: 1, duration: 1.5 },
+      0.5
+    );
+    timeline.fromTo("#title", { opacity: 0 }, { opacity: 1, duration: 2 }, 1);
+    timeline.fromTo(
+      "#dataMemory",
+      { opacity: 0 },
+      { opacity: 1, duration: 2 },
+      1.5
+    );
+    timeline.fromTo(
+      "#nameAvicii",
+      { opacity: 0 },
+      { opacity: 1, duration: 2 },
+      2
+    );
+  }, {});
   return (
     <>
       <section {...stylex.props(styles.section)}>
         <div {...stylex.props(styles.containerImages)}>
-          <motion.img
+          <img
             {...stylex.props(images.bannerImage)}
             id="banner"
             src={BannerImage}
             alt="Avicii"
           />
           <div {...stylex.props(styles.containerTexts)}>
-            <motion.img
+            <img
               id="title"
               className="w-5/6"
               src={TitleMemoryBoard}
               alt="The Avicii memory board"
             />
-            <motion.div className="flex flex-col items-center" id="dataMemory">
+            <div className="flex flex-col items-center" id="dataMemory">
               <p className="uppercase text-xl inLoving">In Loving Memory</p>
               <p className="text-min mt-1 tracking-wide dataMemory">
                 1989.09.08 – 2018.04.20
               </p>
-            </motion.div>
-            <motion.img
+            </div>
+            <img
               id="nameAvicii"
               className="mt-10"
               src={NameAvici}
