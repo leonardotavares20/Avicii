@@ -21,6 +21,20 @@ body {
   user-select: none;
 }
 
+body::-webkit-scrollbar {
+  width: 15px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #202324; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #575e62; /* color of the scroll thumb */
+  border-radius: 0px; /* roundness of the scroll thumb */
+  border: 0; /* creates padding around scroll thumb */
+}
+
 h1,
 h2,
 h3,
